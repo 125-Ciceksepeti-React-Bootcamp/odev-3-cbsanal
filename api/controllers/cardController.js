@@ -1,5 +1,7 @@
 const Card = require("../models/card");
 
+// Api requests controllers
+
 exports.createCard = async (req, res) => {
   try {
     const newCard = await Card.create(req.body);

@@ -7,6 +7,7 @@ import CardDetails from "./CardDetails";
 import CardUpdate from "./CardUpdate";
 const CardContainer = ({ newCardModal, setNewCardModal }) => {
   const [datas, setDatas] = useState([]);
+  // These states for modals
   const [cardDetailsModal, setCardDetailsModal] = useState(false);
   const [currentCardId, setCurrentCardId] = useState(null);
   const [cardUpdateModal, setCardUpdateModal] = useState(false);
@@ -14,6 +15,7 @@ const CardContainer = ({ newCardModal, setNewCardModal }) => {
   const fetchDatas = async () => {
     try {
       const cards = await axios("http://localhost:8000/api/card/allCards");
+      // setting all datas to datas state
       setDatas(cards.data.allCards);
     } catch (err) {
       toast.error("Error occured, please try again", {
@@ -29,6 +31,7 @@ const CardContainer = ({ newCardModal, setNewCardModal }) => {
     }
   };
   useEffect(() => {
+    // fetching datas immediately
     fetchDatas();
   }, []);
   return (

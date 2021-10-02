@@ -3,6 +3,7 @@ const cardController = require("../controllers/cardController");
 
 const router = express.Router();
 
+// the url's that axios send the requests
 router.get("/allCards", cardController.showAllCards);
 router.get("/oneCard/:id", cardController.oneCard);
 router.post("/createCard", cardController.createCard);

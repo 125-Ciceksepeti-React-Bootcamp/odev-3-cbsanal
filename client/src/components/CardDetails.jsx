@@ -5,6 +5,7 @@ import axios from "axios";
 const CardDetails = ({ setCardDetailsModal, currentCardId }) => {
   const [data, setData] = useState(null);
 
+  // to prevent user scroll while modal is open
   const bodyFixed = (status) => {
     const body = document.querySelector("body");
     if (status === "fixed") {
@@ -15,6 +16,7 @@ const CardDetails = ({ setCardDetailsModal, currentCardId }) => {
     }
   };
   useEffect(() => {
+    // get the info of the selected card
     const getCardInfo = async () => {
       const res = await axios.get(
         `http://localhost:8000/api/card/oneCard/${currentCardId}`
@@ -40,7 +42,7 @@ const CardDetails = ({ setCardDetailsModal, currentCardId }) => {
           <div className="title">Item Details</div>
           <div className="image-details-container">
             <div className="img-container">
-              <img src={data.photoURL} alt="x" />
+              <img src={data.photoURL} alt="product-img" />
             </div>
             <div className="details">
               <p>Title: {data.title}</p>

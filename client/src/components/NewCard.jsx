@@ -9,9 +9,20 @@ const NewCard = ({ fetchDatas, setNewCardModal }) => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("0");
   const [explanation, setExplanation] = useState(null);
+  // to prevent user scroll while modal is optionalDependencies
+  const bodyFixed = (status) => {
+    const body = document.querySelector("body");
+    if (status === "fixed") {
+      body.style.position = "fixed";
+      body.style.width = "100%";
+    } else {
+      body.style.position = "relative";
+    }
+  };
   const createCard = async (e) => {
     e.preventDefault();
     try {
+      // checking if photo url is valid
       await axios(photoURL);
       await axios({
         method: "POST",
@@ -23,6 +34,7 @@ const NewCard = ({ fetchDatas, setNewCardModal }) => {
           explanation: explanation,
         },
       });
+      // after checking add the card, and fetch the datas again
       fetchDatas();
       setNewCardModal(false);
       toast.success("Data added successfully!", {
@@ -51,16 +63,7 @@ const NewCard = ({ fetchDatas, setNewCardModal }) => {
   };
   useEffect(() => {
     bodyFixed("fixed");
-  });
-  const bodyFixed = (status) => {
-    const body = document.querySelector("body");
-    if (status === "fixed") {
-      body.style.position = "fixed";
-      body.style.width = "100%";
-    } else {
-      body.style.position = "relative";
-    }
-  };
+  }, []);
   return (
     <section className="new-item-modal">
       <img

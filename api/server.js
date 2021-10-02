@@ -4,6 +4,7 @@ const app = require("./app");
 
 dotenv.config({ path: "./config.env" });
 
+// MongoDB password and special connection string
 const DB = process.env.DATABASE.replace(
   "<password>",
   process.env.DATABASE_PASSWORD

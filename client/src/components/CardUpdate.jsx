@@ -13,7 +13,10 @@ const CardUpdate = ({ setCardUpdateModal, currentCardId, fetchDatas }) => {
   const updateItem = async (e) => {
     e.preventDefault(e);
     try {
+      // checking if photo url is valid by sending get request
       await axios(photoURL.current.value);
+
+      // if it is valid then you can update the product
       await axios({
         method: "PATCH",
         url: `http://localhost:8000/api/card/updateCard/${currentCardId}`,
@@ -24,6 +27,7 @@ const CardUpdate = ({ setCardUpdateModal, currentCardId, fetchDatas }) => {
           explanation: explanation.current.value,
         },
       });
+      // used toast library for notifications
       toast.success("Data updated successfully!", {
         className: "toast",
         position: "top-right",
@@ -34,6 +38,7 @@ const CardUpdate = ({ setCardUpdateModal, currentCardId, fetchDatas }) => {
         draggable: true,
         progress: undefined,
       });
+      // after updating, fetch all the datas from database again
       fetchDatas();
       setCardUpdateModal(false);
       bodyFixed("unfixed");
@@ -51,6 +56,7 @@ const CardUpdate = ({ setCardUpdateModal, currentCardId, fetchDatas }) => {
     }
   };
 
+  // to prevent user scroll while modal is open
   const bodyFixed = (status) => {
     const body = document.querySelector("body");
     if (status === "fixed") {
@@ -61,6 +67,7 @@ const CardUpdate = ({ setCardUpdateModal, currentCardId, fetchDatas }) => {
     }
   };
   useEffect(() => {
+    // get info of one card
     const getCardInfo = async () => {
       const res = await axios.get(
         `http://localhost:8000/api/card/oneCard/${currentCardId}`

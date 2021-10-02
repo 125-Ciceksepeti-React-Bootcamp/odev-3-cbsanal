@@ -14,12 +14,15 @@ const Card = ({
   setCurrentCardId,
   setCardUpdateModal,
 }) => {
+  // delete method for card
   const deleteCard = async (id) => {
     try {
       await axios({
         method: "DELETE",
         url: `http://localhost:8000/api/card//deleteCard/${id}`,
       });
+
+      // toast library for notifications
       toast.success("Data deleted successfully!", {
         className: "toast",
         position: "top-right",
