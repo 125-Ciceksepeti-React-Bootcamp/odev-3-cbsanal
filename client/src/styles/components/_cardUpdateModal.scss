@@ -1,0 +1,33 @@
+@use "../helpers" as func;
+
+.item-update-modal {
+  @extend .modal;
+  @include func.flex($justify: center);
+  .item-container {
+    width: 35vw;
+    @include func.flex($justify: center, $align: center, $direction: column);
+    .title {
+      font-size: 3.5rem;
+      margin-bottom: 4rem;
+    }
+    label {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    div {
+      @include func.flex($direction: column, $align: flex-start);
+      margin-bottom: 2rem;
+    }
+    input,
+    textarea {
+      padding: 1rem 0.2rem;
+      width: 20vw;
+      min-width: 20rem;
+    }
+    .update-btn {
+      width: 100%;
+      text-align: center;
+      display: block;
+    }
+  }
+}

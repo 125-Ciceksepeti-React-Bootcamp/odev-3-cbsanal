@@ -1,0 +1,66 @@
+@use "../helpers" as func;
+
+header {
+  width: 100%;
+  padding: 2.5rem 2rem;
+  background-color: #211f21;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  @include func.flex();
+  .logo-wrapper {
+    @include func.flex($justify: normal);
+    flex: 1;
+    .logo-title {
+      font-weight: 600;
+      font-size: 2.5rem;
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+    .logo {
+      width: 3.5rem;
+      margin-right: 1rem;
+    }
+  }
+}
+.btn-wrapper {
+  flex: 1;
+  @include func.flex($justify: flex-end);
+  .item-btn {
+    padding: 1.5rem 3rem;
+    color: #fff;
+    font-size: 1.55rem;
+    cursor: pointer;
+    border: none;
+    background-color: #353535;
+    transition: background-color 0.5s ease;
+    @include func.flex();
+    img {
+      width: 2rem;
+      margin-right: 1rem;
+    }
+    &:hover {
+      background-color: #000;
+    }
+  }
+}
+@media (max-width: 580px) {
+  header {
+    padding: 1.5rem 2rem;
+    .logo-wrapper {
+      .logo-title {
+        font-size: 2rem;
+      }
+      .logo {
+        width: 2.5rem;
+      }
+    }
+    .btn-wrapper {
+      .item-btn {
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+        img {
+          width: 1.5rem;
+        }
+      }
+    }
+  }
+}

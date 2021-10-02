@@ -1,0 +1,12 @@
+.card-container {
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15vw, 1fr));
+  column-gap: 2.5vw;
+  row-gap: 4vh;
+}
+@media (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  }
+}

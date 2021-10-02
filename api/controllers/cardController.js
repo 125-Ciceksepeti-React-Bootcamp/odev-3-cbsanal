@@ -21,9 +21,21 @@ exports.showAllCards = async (req, res) => {
     const allCards = await Card.find();
     res.status(200).json({
       status: "success",
-      data: {
-        cards: allCards,
-      },
+      allCards,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "Problem occured, please try again",
+    });
+  }
+};
+
+exports.oneCard = async (req, res) => {
+  try {
+    const card = await Card.find({ _id: req.params.id });
+    res.status(200).json({
+      status: "success",
+      card,
     });
   } catch (err) {
     res.status(404).json({

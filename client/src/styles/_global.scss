@@ -1,0 +1,23 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #353535;
+  color: #fff;
+}
+a {
+  text-decoration: none;
+}
+.toast {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+}

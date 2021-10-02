@@ -15,6 +15,4 @@ mongoose
   .catch((err) => console.log(err));
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Uygulama port ${port}'da çalışıyor.`);
-});
+app.listen(port, () => console.log(`Uygulama port ${port}'da çalışıyor.`));
